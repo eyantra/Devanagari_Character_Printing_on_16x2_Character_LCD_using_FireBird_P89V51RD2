@@ -1,0 +1,66 @@
+C51 COMPILER V8.08   MAIN                                                                  10/01/2010 16:42:23 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<intrins.h>
+   2          #include"p89v51rx2.h"
+   3          #include"lcd.h"
+   4          
+   5          
+   6          void main(void)
+   7          {
+   8   1       
+   9   1       unsigned char pattern[]={0x1f, 0x4, 0xe, 0x15, 0x15, 0xc, 0x4, 0x0,    //Ka
+  10   1                                                        0x1f, 0x9, 0xb, 0x15, 0x13, 0x9, 0x9, 0x0,    //Kha
+  11   1                                                        0x1f, 0x9, 0x9, 0x9, 0x9, 0x19, 0x19, 0x0,    //Ga
+  12   1                                                        0x1f, 0x11, 0x11, 0xd, 0x11, 0x11, 0xf, 0x1,  //Gha
+  13   1                                                        0x1f, 0x2, 0xe, 0x10, 0xe, 0x1, 0x11, 0xe,    //Da
+  14   1                                                        0x1f, 0x1, 0x1, 0x1d, 0x9, 0x9, 0x7, 0x1,             //Cha
+  15   1                                                        0x1f, 0x2, 0x1f, 0x2, 0xa, 0x4, 0x2, 0x1,             //Rupee Symbol
+  16   1                                                        0x00, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0       };      // Blank
+  17   1      
+  18   1       
+  19   1       unsigned char i=0;
+  20   1       LCD_INIT();
+  21   1       LCD_CMD(DON_COFF);
+  22   1      
+  23   1       LCD_CMD(0x40);
+  24   1       for(i=0;i<64;i++)
+  25   1       {
+  26   2        LCD_CHAR(pattern[i]);
+  27   2       }
+  28   1      
+  29   1       LCD_CMD(LINE1);
+  30   1       LCD_WRITE("Devnagari ");
+  31   1       LCD_CHAR(0x00);
+  32   1       LCD_CHAR(0x01);
+  33   1       LCD_CHAR(0x02);
+  34   1       LCD_CHAR(0x03);
+  35   1       LCD_CHAR(0x04);
+  36   1       LCD_CHAR(0x05);
+  37   1      
+  38   1       LCD_CMD(LINE2);
+  39   1       LCD_WRITE("Rupee symbol ");
+  40   1       LCD_CHAR(0x06);
+  41   1      
+  42   1       while(1);
+  43   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    302    ----
+   CONSTANT SIZE    =     89    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     11      69
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
